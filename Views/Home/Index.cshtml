@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<main>
+    <h1>Выберите вид спорта для игры</h1>
+    <table>
+        @foreach (DenchikSportsRu.Models.Db.DbSports row in Model.List)
+        {
+            <tr>
+                <td>
+                    <a href="@row.sports_url">
+                        <h2>@row.sports_name</h2>
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+</main>
+
+
+   

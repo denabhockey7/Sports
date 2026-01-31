@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="color_scheme">
+<style>
+    #head {
+        padding: 10px 0;
+    }
+
+    #body {
+        min-height: 70vh;
+        padding: 20px 0;
+    }
+
+    #footer {
+        padding: 30px 0;
+        margin-top: 20px;
+    }
+
+    .page_container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+</style>
+<head>
+    @await Html.PartialAsync("/Views/Parts/InHead.cshtml")
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+
+<body class="template-index scheme_1 ">
+    <div class="page_wrapper">
+        <div id="head">
+            @await Html.PartialAsync("/Views/Parts/Header.cshtml")
+        </div>
+
+        <div class="page_container" id="body">
+            @RenderBody()
+        </div>
+
+        <div class="page_container" id="footer">
+            @await Html.PartialAsync("/Views/Parts/Footer.cshtml")
+        </div>
+        <a id="back_top" href="#">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </a>
+    </div>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>*@
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

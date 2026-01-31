@@ -1,0 +1,29 @@
+﻿@using DenchikSportsRu.Models.Page;
+@model Sports;
+
+@{
+    Layout = "_Layout";
+}
+
+<main>
+    <h1>Выберите вид спорта</h1>
+    @if (Model.List.Any())
+    {
+        <table>
+            @foreach (DenchikSportsRu.Models.Db.DbSports row in Model.List)
+            {
+                <tr>
+                    <td>
+                        <h2>
+                            <a asp-area="" href="@row.sports_url">@row.sports_name</a>
+                        </h2>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>Нет данных для отображения</p>
+    }
+</main>

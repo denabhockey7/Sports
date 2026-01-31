@@ -1,0 +1,25 @@
+﻿@using DenchikSportsRu.Models.Page;
+@model Football;
+
+
+@{
+    Layout = "_Layout";
+}
+
+<main>
+    <h1>Выбирете лигу в которой будете играть</h1>
+    <table>
+        @foreach (DenchikSportsRu.Models.Db.DbFootball row in Model.List)
+        {
+            <tr>
+                <td>
+                    <a href="@row.league_url">
+                        <h2>@row.league_name</h2>
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+</main>
+
+
