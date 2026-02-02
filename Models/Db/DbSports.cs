@@ -12,6 +12,8 @@ namespace DenchikSportsRu.Models.Db
             public string sports_url { get; set; }
 
             public string sports_name { get; set; }
-        
+        public string sports_photo { get; set; }
+        public string sports_img { get; set; }
+
     }
 }

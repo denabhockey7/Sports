@@ -2,21 +2,87 @@
     Layout = "_Layout";
 }
 
-<main>
-    <h1>Выберите вид спорта для игры</h1>
-    <table>
-        @foreach (DenchikSportsRu.Models.Db.DbSports row in Model.List)
-        {
-            <tr>
-                <td>
-                    <a href="@row.sports_url">
-                        <h2>@row.sports_name</h2>
-                    </a>
-                </td>
-            </tr>
-        }
-    </table>
+<main id="content" class="site-main post-43 page type-page status-publish hentry">
+    <div class="page-content">
+        <div data-elementor-type="wp-page" data-elementor-id="43" class="elementor elementor-43" data-elementor-post-type="page">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-df04e12 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="df04e12" data-element_type="section" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+                <div class="elementor-container elementor-column-gap-no">
+                    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-65ee644" data-id="65ee644" data-element_type="column">
+                        <div class="elementor-widget-wrap elementor-element-populated">
+                            <div class="elementor-element elementor-element-09c7ee9 elementor-widget elementor-widget-jet-blog-smart-tiles" data-id="09c7ee9" data-element_type="widget" data-widget_type="jet-blog-smart-tiles.default">
+                                <div class="elementor-widget-container">
+                                    <div class="elementor-jet-blog-smart-tiles jet-blog">
+                                        <div class="jet-smart-tiles-wrap" data-slider-atts='{"adaptiveHeight":true,"arrows":false,"prevArrow":"<i class=\"jet-arrow-prev jet-blog-arrow\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M14.625 5.3999L16.3 7.0749L11.35 12.0249L16.3 16.9749L14.625 18.6499L7.99999 12.0249L14.625 5.3999Z\" fill=\"#0F172A\"\/><\/svg><\/i>","nextArrow":"<i class=\"jet-arrow-next jet-blog-arrow\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M9.37501 18.6001L7.70001 16.9251L12.65 11.9751L7.70001 7.0251L9.37501 5.3501L16 11.9751L9.37501 18.6001Z\" fill=\"#0F172A\"\/><\/svg><\/i>","autoplay":false,"autoplaySpeed":5000,"rtl":false}' dir="ltr">
+                                            <div class="jet-smart-tiles-slide">
+                                                <div class="jet-smart-tiles-slide__wrap layout-2-3-v">
+
+                                                    @foreach (DenchikSportsRu.Models.Db.DbSports row in Model.List)
+                                                        {
+                                                    
+                                                        <div class="jet-smart-tiles">
+                                                            <div class="jet-smart-tiles__box" style="background-image:url('/Sports/@row.sports_photo.@row.sports_img')">
+                                                                <div class="jet-smart-tiles__terms"><a href="@row.sports_url" class="jet-smart-tiles__terms-link jet-smart-tiles__terms-link--8">@row.sports_name</a></div>
+                                                                <div class="jet-smart-tiles__box-content">
+                                                                    <div class="jet-smart-tiles__box-content-inner">
+                                                                        <div class="jet-smart-tiles__meta">
+                                                                            
+                                                                            <span class="posted-by post-meta__item jet-smart-tiles__meta-item">
+                                                                                <span class="jet-smart-tiles__meta-icon jet-blog-icon">
+                                                                                    <i class="fa-solid fa-newspaper"></i>
+                                                                                </span>
+                                                                                <span class="posted-by__author">Новости</span>
+                                                                            </span>
+                                                                            <span class="post__date post-meta__item jet-smart-tiles__meta-item">
+                                                                                <span class="jet-smart-tiles__meta-icon jet-blog-icon">
+                                                                                    <i aria-hidden="true" class="fas fa-calendar-alt"></i>
+                                                                                </span>
+                                                                            </span>
+                                                                            <div id="currentDateTime"></div>
+                                                                        </div>
+                                                                        <div class="jet-smart-tiles__box-title">Новости на сегодня</div>
+                                                                    </div>
+                                                                </div>
+                                                                    <a href="@row.sports_url" class="jet-smart-tiles__box-link" aria-label="@row.sports_name"></a>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 </main>
+<script>
+    function updateDateTime() {
+        const now = new Date();
+        const element = document.getElementById('currentDateTime');
+
+        const dateStr = now.toLocaleDateString('ru-RU', {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+        element.textContent = `${dateStr}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', updateDateTime);
+
+    setInterval(updateDateTime, 1000);
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateDateTime);
+    } else {
+        updateDateTime();
+    }
+</script>
 
 
    

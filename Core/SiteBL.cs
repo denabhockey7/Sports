@@ -121,6 +121,70 @@ namespace DenchikSportsRu.Core
             }
         }
 
+        public static Formula GetFormula(Formula frm)
+        {
+            try
+            {
+                using (var conn = new NpgsqlConnection(Consts.ConnectionString))
+                {
+                    conn.Open();
+
+                    var allF1 = conn.Query<DbFormula>(
+                 @"SELECT * FROM ""formula"" ORDER BY ""racer_points"" DESC, ""racer_name""").ToList();
+
+                    var f1 = allF1.FirstOrDefault();
+
+                    return new Formula
+                    {
+                        racer_url = f1?.racer_url,
+                        racer_name = f1?.racer_name,
+                        racer_surname = f1?.racer_surname,
+                        racer_team_name = f1?.racer_team_name,
+                        racer_photo = f1?.racer_photo,
+                        racer_team_photo = f1?.racer_team_photo,
+                        points = f1?.points ?? 0,
+                        List = allF1
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return new Formula { List = new List<DbFormula>() };
+            }
+        }
+
+        public static Tennis GetTennis(Tennis frm)
+        {
+            try
+            {
+                using (var conn = new NpgsqlConnection(Consts.ConnectionString))
+                {
+                    conn.Open();
+
+                    var allTennis = conn.Query<DbTennis>(
+                 @"SELECT * FROM ""tennis"" ORDER BY ""points"" DESC, ""name""").ToList();
+
+                    var tennis = allTennis.FirstOrDefault();
+
+                    return new Tennis
+                    {
+                        url = tennis?.url,
+                        name = tennis?.name,
+                        surname = tennis?.surname,
+                        photo = tennis?.photo,
+                        points = tennis?.points ?? 0,
+                        List = allTennis
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return new Tennis { List = new List<DbTennis>() };
+            }
+        }
+
 
 
         public static Teams GetLeague(Teams frm, string league)

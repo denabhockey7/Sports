@@ -75,53 +75,68 @@
               font-weight: bold;
           }
     </style>
-<main>
-
-    <h1>Бундеслига</h1>
-@if (Model.List != null && Model.List.Any())
-{
-    <table class="table table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th>#</th>
-                <th></th>
-                <th>Команда</th>
-                <th>И</th>
-                <th>В</th>
-                <th>Н</th>
-                <th>П</th>
-                <th>З</th>
-                <th>П</th>
-                <th>+/-</th>
-                <th>О</th>
-            </tr>
-        </thead>
-        <tbody>
-            @{
-                int position = 1;
-                foreach (var row in Model.List.OrderByDescending(x => x.points))
-                {
-                    <tr>
-                        <td>@position</td>
-                            <td><img src="~/Bundesphoto/@row.team_photo.@row.team_url" style="width: 30px; height: 30px; object-fit: contain;vertical-align: middle;" /></td>
-                        <td><strong>@row.team_name</strong></td>
-                        <td>@(row.wins + row.draws + row.loses)</td>
-                        <td>@row.wins</td>
-                        <td>@row.draws</td>
-                        <td>@row.loses</td>
-                        <td>@row.goals</td>
-                        <td>@row.misses</td>
-                        <td>@(row.goals - row.misses)</td>
-                        <td><strong>@row.points</strong></td>
-                    </tr>
-                    position++;
-                }
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>Нет данных для отображения</p>
-}
+<main id="content" class="site-main post-43 page type-page status-publish hentry">
+    <div class="page-content">
+        <div data-elementor-type="wp-page" data-elementor-id="43" class="elementor elementor-43" data-elementor-post-type="page">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-df04e12 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="df04e12" data-element_type="section" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+                <div class="elementor-container elementor-column-gap-no">
+                    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-65ee644" data-id="65ee644" data-element_type="column">
+                        <div class="elementor-widget-wrap elementor-element-populated">
+                            <div class="elementor-element elementor-element-09c7ee9 elementor-widget elementor-widget-jet-blog-smart-tiles" data-id="09c7ee9" data-element_type="widget" data-widget_type="jet-blog-smart-tiles.default">
+                                <div class="elementor-widget-container">
+                                    <h1>Бундеслига</h1>
+                                    @if (Model.List != null && Model.List.Any())
+                                    {
+                                        <table class="table table-striped">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th></th>
+                                                    <th>Команда</th>
+                                                    <th>И</th>
+                                                    <th>В</th>
+                                                    <th>Н</th>
+                                                    <th>П</th>
+                                                    <th>З</th>
+                                                    <th>П</th>
+                                                    <th>+/-</th>
+                                                    <th>О</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    int position = 1;
+                                                    foreach (var row in Model.List.OrderByDescending(x => x.points))
+                                                    {
+                                                        <tr>
+                                                            <td>@position</td>
+                                                                <td><img src="~/Bundesphoto/@row.team_photo.@row.team_url" style="width: 30px; height: 30px; object-fit: contain;vertical-align: middle;" /></td>
+                                                            <td><strong>@row.team_name</strong></td>
+                                                            <td>@(row.wins + row.draws + row.loses)</td>
+                                                            <td>@row.wins</td>
+                                                            <td>@row.draws</td>
+                                                            <td>@row.loses</td>
+                                                            <td>@row.goals</td>
+                                                            <td>@row.misses</td>
+                                                            <td>@(row.goals - row.misses)</td>
+                                                            <td><strong>@row.points</strong></td>
+                                                        </tr>
+                                                        position++;
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    }
+                                    else
+                                    {
+                                        <p>Нет данных для отображения</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 </main>

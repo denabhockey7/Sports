@@ -1,0 +1,18 @@
+﻿body {
+    margin: 0;
+}
+.header1 {
+    background-color: #C62300;
+    overflow: hidden;
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0px 15px 0px 15px;
+    position: relative;
+}
+.header2 {
+    max-width: 1300px;
+    display: flex;
+    margin-inline: auto;
+    position: relative;
+}

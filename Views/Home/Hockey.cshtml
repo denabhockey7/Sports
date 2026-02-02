@@ -6,18 +6,33 @@
     Layout = "_Layout";
 }
 
-<main>
-    <h1>Выбирете Лигу</h1>
-    <table>
-        @foreach (DenchikSportsRu.Models.Db.DbHockey row in Model.List)
-        {
-            <tr>
-                <td>
-                    <a href="@row.league_url">
-                        <h2>@row.league_name</h2>
-                    </a>
-                </td>
-            </tr>
-        }
-    </table>
+<main id="content" class="site-main post-43 page type-page status-publish hentry">
+    <div class="page-content">
+        <div data-elementor-type="wp-page" data-elementor-id="43" class="elementor elementor-43" data-elementor-post-type="page">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-df04e12 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="df04e12" data-element_type="section" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+                <div class="elementor-container elementor-column-gap-no">
+                    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-65ee644" data-id="65ee644" data-element_type="column">
+                        <div class="elementor-widget-wrap elementor-element-populated">
+                            <div class="elementor-element elementor-element-09c7ee9 elementor-widget elementor-widget-jet-blog-smart-tiles" data-id="09c7ee9" data-element_type="widget" data-widget_type="jet-blog-smart-tiles.default">
+                                <div class="elementor-widget-container">
+                                    <table>
+                                        @foreach (DenchikSportsRu.Models.Db.DbHockey row in Model.List)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <a href="@row.league_url">
+                                                        <h2>@row.league_name</h2>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 </main>

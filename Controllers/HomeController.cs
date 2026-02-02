@@ -85,6 +85,22 @@ public class HomeController : Controller
     }
 
     [HttpGet]
+    [Route("/Tennis")]
+    public IActionResult Tennis(Tennis frm)
+    {
+        Tennis m = SiteBL.GetTennis(frm);
+        return View(m);
+    }
+
+    [HttpGet]
+    [Route("/Formula")]
+    public IActionResult Formula(Formula frm)
+    {
+        Formula m = SiteBL.GetFormula(frm);
+        return View(m);
+    }
+
+    [HttpGet]
     [Route("/NHL")]
     public IActionResult NHL(Clubs frm)
     {

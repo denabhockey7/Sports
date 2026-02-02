@@ -1,1 +1,172 @@
-﻿
+﻿@using DenchikSportsRu.Models.Page;
+@model Formula;
+
+
+@{
+    Layout = "_Layout";
+}
+<style>
+    main {
+        text-align: center;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .tables-container {
+        display: flex;
+        gap: 75px;
+        justify-content: space-between;
+    }
+
+    .table-wrapper {
+        flex: 1;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+
+    tr {
+        text-align: center;
+        height: 40px;
+    }
+
+    th, td {
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    .leader-row {
+        background-color: #e8f5e8;
+    }
+
+    .middle-row {
+        background-color: #ffffff;
+    }
+
+    .team-name {
+        text-align: left;
+        font-weight: bold;
+    }
+
+    caption {
+        caption-side: top;
+        font-size: 1.2em;
+        font-weight: 700;
+        color: black;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .table-racer {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    .table-teams {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+</style>
+
+<main id="content" class="site-main post-43 page type-page status-publish hentry">
+    <div class="page-content">
+        <div data-elementor-type="wp-page" data-elementor-id="43" class="elementor elementor-43" data-elementor-post-type="page">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-df04e12 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="df04e12" data-element_type="section" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+                <div class="elementor-container elementor-column-gap-no">
+                    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-65ee644" data-id="65ee644" data-element_type="column">
+                        <div class="elementor-widget-wrap elementor-element-populated">
+                            <div class="elementor-element elementor-element-09c7ee9 elementor-widget elementor-widget-jet-blog-smart-tiles" data-id="09c7ee9" data-element_type="widget" data-widget_type="jet-blog-smart-tiles.default">
+                                <div class="elementor-widget-container">
+                                    <div class="tables-container">
+                                        <div class="table-wrapper">
+                                            <table class="table-racer">
+                                                <caption>Личный зачет</caption>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Место</th>
+                                                        <th></th>
+                                                        <th>Спортсмен</th>
+                                                        <th>Команда</th>
+                                                        <th>Очки</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @{
+                                                        int position = 1;
+                                                        foreach (var row in Model.List.OrderByDescending(x => x.points))
+                                                        {
+                                                                <tr>
+                                                                    <td>@position</td>
+                                                                    <td><img src="~/f1/@row.racer_photo.@row.racer_url" style="width: 30px; height: 30px; object-fit: contain; vertical-align: middle;" /></td>
+                                                                    <td><strong>@row.racer_name @row.racer_surname</strong></td>
+                                                                    <td>@row.racer_team_name</td>
+                                                                    <td>@row.points</td>
+                                                                </tr>
+                                                                position++;
+                                                        }
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="table-wrapper">
+                                            <table class="table-teams">
+                                                <caption>Кубок конструкторов</caption>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Место</th>
+                                                        <th></th>
+                                                        <th>Команда</th>
+                                                        <th>Очки</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @{
+                                                        var teamPointsSimple = Model.List
+                                                        .Where(r => !string.IsNullOrEmpty(r.racer_team_name))
+                                                        .GroupBy(r => r.racer_team_name)
+                                                        .Select(g => new
+                                                        {
+                                                            TeamName = g.Key,
+                                                            TeamPhoto = g.First().racer_team_photo,
+                                                            TeamUrl = g.First().racer_url,
+                                                            Points = g.Sum(r => r.points)
+                                                        })
+                                                        .OrderByDescending(t => t.Points)
+                                                        .ToList();
+
+                                                        int teamPositionSimple = 1;
+                                                        foreach (var team in teamPointsSimple)
+                                                        {
+                                                            <tr>
+                                                                <td>@teamPositionSimple</td>
+                                                                <td><img src="~/f1/@team.TeamPhoto.@team.TeamUrl" style="width: 30px; height: 30px; object-fit: contain; vertical-align: middle;" /></td>
+                                                                <td><strong>@team.TeamName</strong></td>
+                                                                <td><strong>@team.Points</strong></td>
+                                                            </tr>
+                                                            teamPositionSimple++;
+                                                        }
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
