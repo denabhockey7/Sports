@@ -3,10 +3,10 @@
     public class DbTennis
     {
         public string id { get; set; }
-        public string name { get; set; }
-        public string surname { get; set; }
-        public string photo { get; set; }
-        public int points { get; set; }
-        public string url { get; set; }
+        public string tennis_name { get; set; }
+        public string tennis_news { get; set; }
+        public string tennis_photo { get; set; }
+        public string tennis_img { get; set; }
+        public string tennis_url { get; set; }
     }
 }

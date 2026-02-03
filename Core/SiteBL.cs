@@ -55,7 +55,44 @@ namespace DenchikSportsRu.Core
 
         public static Clubs GetKHL(Clubs frm) => GetHLeague(frm, "KHL");
         public static Clubs GetNHL(Clubs frm) => GetHLeague(frm, "NHL");
-        
+
+        public static ATP GetTp(ATP frm, string sex)
+        {
+            try
+            {
+                using (var conn = new NpgsqlConnection(Consts.ConnectionString))
+                {
+                    conn.Open();
+
+                    var allTP = conn.Query<DbATP>(
+                        @"SELECT * FROM ""atp"" WHERE ""sex"" = sex ORDER BY ""surname""",
+                        new { sex = sex }).ToList();
+
+                    var Tp = allTP.FirstOrDefault();
+
+                    return new ATP
+                    {
+                        img = Tp?.img,
+                        name = Tp?.name,
+                        surname = Tp?.surname,
+                        points = Tp?.points ?? 0,
+                        photo = Tp?.photo,
+                        country = Tp?.country,
+                        sex = Tp?.sex,
+                        List = allTP
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting {sex}: {ex.Message}");
+                return new ATP { List = new List<DbATP>() };
+            }
+        }
+
+        public static ATP GetATP(ATP frm) => GetTp(frm, "ATP");
+        public static ATP GetWTP(ATP frm) => GetTp(frm, "WTP");
+
 
         public static Hockey GetHockey(Hockey frm)
         {
@@ -76,6 +113,9 @@ namespace DenchikSportsRu.Core
                     {
                         league_url = league?.league_url,
                         league_name = league?.league_name,
+                        league_news = league?.league_news,
+                        league_photo = league?.league_photo,
+                        league_img = league?.league_img,
                         List = allLeague
                     };
                 }
@@ -163,17 +203,17 @@ namespace DenchikSportsRu.Core
                     conn.Open();
 
                     var allTennis = conn.Query<DbTennis>(
-                 @"SELECT * FROM ""tennis"" ORDER BY ""points"" DESC, ""name""").ToList();
+                 @"SELECT * FROM ""tennis""").ToList();
 
                     var tennis = allTennis.FirstOrDefault();
 
                     return new Tennis
                     {
-                        url = tennis?.url,
-                        name = tennis?.name,
-                        surname = tennis?.surname,
-                        photo = tennis?.photo,
-                        points = tennis?.points ?? 0,
+                        tennis_url = tennis?.tennis_url,
+                        tennis_name = tennis?.tennis_name,
+                        tennis_news = tennis?.tennis_news,
+                        tennis_photo = tennis?.tennis_photo,
+                        tennis_img = tennis?.tennis_img,
                         List = allTennis
                     };
                 }
@@ -243,12 +283,15 @@ namespace DenchikSportsRu.Core
                         new { id = frm.id });
 
                     var allLeague = conn.Query<DbFootball>(
-                        @"SELECT * FROM ""football"" ORDER BY ""league_name""").ToList();
+                        @"SELECT * FROM ""football""").ToList();
 
                     return new Football
                     {
                         league_url = league?.league_url,
-                        league_name = league?.league_name,
+                        leaguetop = league?.leaguetop,
+                        league_news = league?.league_news,
+                        league_photo = league?.league_photo,
+                        league_img = league?.league_img,
                         List = allLeague
                     };
                 }
@@ -259,6 +302,77 @@ namespace DenchikSportsRu.Core
             {
                 Console.WriteLine($"Error: {ex.Message}");
                 return new Football { List = new List<DbFootball>() };
+            }
+        }
+
+        public static Leaguetop GetTop5(Leaguetop frm)
+        {
+            try
+            {
+                using (var conn = new NpgsqlConnection(Consts.ConnectionString))
+                {
+                    conn.Open();
+
+                    var league = conn.QueryFirstOrDefault<DbLeaguetop>(
+                        @"SELECT * FROM ""leaguetop"" WHERE ""id"" = @id",
+                        new { id = frm.id });
+
+                    var allLeague = conn.Query<DbLeaguetop>(
+                        @"SELECT * FROM ""leaguetop"" ORDER BY ""league_name""").ToList();
+
+                    return new Leaguetop
+                    {
+                        league_url = league?.league_url,
+                        league_name = league?.league_name,
+                        league_name2 = league?.league_name2,
+                        league_photo = league?.league_photo,
+                        league_img = league?.league_img,
+                        List = allLeague
+                    };
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return new Leaguetop { List = new List<DbLeaguetop>() };
+            }
+        }
+
+        public static Leagueother GetTop10(Leagueother frm)
+        {
+            try
+            {
+                using (var conn = new NpgsqlConnection(Consts.ConnectionString))
+                {
+                    conn.Open();
+
+                    var league = conn.QueryFirstOrDefault<DbLeagueother>(
+                        @"SELECT * FROM ""leagueother"" WHERE ""id"" = @id",
+                        new { id = frm.id });
+
+                    var allLeague = conn.Query<DbLeagueother>(
+                        @"SELECT * FROM ""leagueother"" ORDER BY ""league_name""").ToList();
+
+                    return new Leagueother
+                    {
+
+                        league_url = league?.league_url,
+                        league_name = league?.league_name,
+                        league_name2 = league?.league_name2,
+                        league_photo = league?.league_photo,
+                        league_img = league?.league_img,
+                        List = allLeague
+                    };
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return new Leagueother { List = new List<DbLeagueother>() };
             }
         }
 

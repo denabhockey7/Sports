@@ -30,6 +30,7 @@
     <Folder Include="wwwroot\Bundesphoto\" />
     <Folder Include="wwwroot\L1photo\" />
     <Folder Include="wwwroot\LLphoto\" />
+    <Folder Include="wwwroot\LeagueFootball\" />
     <Folder Include="wwwroot\SAphoto\" />
   </ItemGroup>
 

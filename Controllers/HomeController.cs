@@ -75,20 +75,28 @@ public class HomeController : Controller
         return View(m);
     }
 
+    [HttpGet]
+    [Route("/leaguetop")]
+    public IActionResult Leaguetop(Leaguetop frm)
+    {
+        Leaguetop m = SiteBL.GetTop5(frm);
+        return View(m);
+    }
+
+    [HttpGet]
+    [Route("/leagueother")]
+    public IActionResult Leagueother(Leagueother frm)
+    {
+        Leagueother m = SiteBL.GetTop10(frm);
+        return View(m);
+    }
+
 
     [HttpGet]
     [Route("/Hockey")]
     public IActionResult Hockey(Hockey frm)
     {
         Hockey m = SiteBL.GetHockey(frm);
-        return View(m);
-    }
-
-    [HttpGet]
-    [Route("/Tennis")]
-    public IActionResult Tennis(Tennis frm)
-    {
-        Tennis m = SiteBL.GetTennis(frm);
         return View(m);
     }
 
@@ -116,7 +124,28 @@ public class HomeController : Controller
         Clubs m = SiteBL.GetKHL(frm);
         return View(m);
     }
+    [HttpGet]
+    [Route("/ATP")]
+    public IActionResult ATP(ATP frm)
+    {
+        ATP m = SiteBL.GetATP(frm);
+        return View(m);
+    }
+    [HttpGet]
+    [Route("/WTP")]
+    public IActionResult WTP(ATP frm)
+    {
+        ATP m = SiteBL.GetWTP(frm);
+        return View(m);
+    }
 
+    [HttpGet]
+    [Route("/Tennis")]
+    public IActionResult Tennis(Tennis frm)
+    {
+        Tennis m = SiteBL.GetTennis(frm);
+        return View(m);
+    }
 
     public IActionResult Index()
     {
