@@ -20,6 +20,8 @@ public class HomeController : Controller
         return View(m);
     }
 
+    
+
     [HttpGet]
     [Route("/EPL")]
     public IActionResult EPL(Teams frm)
