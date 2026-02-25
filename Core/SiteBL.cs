@@ -389,12 +389,15 @@ namespace DenchikSportsRu.Core
                         new { id = frm.id });
 
                     var allSports = conn.Query<DbSports>(
-                        @"SELECT * FROM ""sports"" ORDER BY ""sports_name""").ToList();
+                        @"SELECT * FROM ""sports"" ORDER BY ""position""").ToList();
 
                     return new Sports
                     {
                         sports_url = sport?.sports_url,
                         sports_name = sport?.sports_name,
+                        sports_photo = sport?.sports_photo,
+                        sports_img = sport?.sports_img,
+                        position = sport?.position,
                         List = allSports
                     };
                 }
