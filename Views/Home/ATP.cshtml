@@ -72,6 +72,224 @@
         margin: 20px 0;
     }
 
+    .game-setup {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .confirm-btn {
+        display: none;
+        margin: 25px auto 0;
+        padding: 15px 40px;
+        background: linear-gradient(to right, #4C0E0F, red);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px #4C0E0F;
+    }
+
+        .confirm-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px #4C0E0F;
+        }
+
+        .confirm-btn.active {
+            display: block;
+        }
+
+    .custom-ratings {
+        display: none;
+        margin-top: 20px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+    }
+
+        .custom-ratings.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+    .custom-ratings-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+        .custom-ratings-table th, .custom-ratings-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .custom-ratings-table th {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .custom-ratings-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+    .setup-section {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+        justify-content: center;
+        text-align: center;
+    }
+
+        .setup-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            text-align: center;
+        }
+
+            .setup-section h2 i {
+                font-size: 1.6rem;
+            }
+
+    .in-game-screen {
+        display: none;
+        text-align: center;
+        padding: 40px 20px;
+        animation: fadeIn 0.8s ease;
+    }
+
+        .in-game-screen.active {
+            display: block;
+        }
+
+    .game-title {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        background: linear-gradient(to right, #4C0E0F);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .game-message {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+        color: #feb47b;
+    }
+
+    .final-ratings-table {
+        width: 100%;
+        max-width: initial;
+        margin: 0 auto;
+        border-collapse: collapse;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+        .final-ratings-table th {
+            background-color: #4C0E0F;
+            padding: 15px;
+            font-size: 1.2rem;
+            color: #FFFFFF;
+        }
+
+        .final-ratings-table td {
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .final-ratings-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .final-ratings-table .team-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+
+    .restart-btn {
+        margin-top: 40px;
+        padding: 15px 40px;
+        background: linear-gradient(to right, #4C0E0F, red);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px #4C0E0F;
+    }
+
+        .restart-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px #4C0E0F;
+        }
+
+    .settings-options {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .settings-btn {
+        flex: 1;
+        min-width: 200px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid transparent;
+        border-radius: 10px;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+        .settings-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .settings-btn.selected {
+            background: rgba(76, 14, 15, 0.3);
+            border-color: #4C0E0F;
+        }
+
+    .settings-icon {
+        font-size: 1.5rem;
+    }
+
+    .selected-team-info {
+        background-color: rgba(76, 14, 15, 0.1);
+        padding: 15px;
+        border-radius: 10px;
+        margin: 15px 0;
+        border-left: 4px solid #4C0E0F;
+    }
 </style>
 
 <main id="content" class="site-main post-43 page type-page status-publish hentry">
@@ -83,40 +301,116 @@
                         <div class="elementor-widget-wrap elementor-element-populated">
                             <div class="elementor-element elementor-element-09c7ee9 elementor-widget elementor-widget-jet-blog-smart-tiles" data-id="09c7ee9" data-element_type="widget" data-widget_type="jet-blog-smart-tiles.default">
                                 <div class="elementor-widget-container">
-                                    <div class="tables-container">
-                                        <div class="table-wrapper">
-                                            <table class="table">
-                                                <caption>ATP top 20</caption>
+                                    <div class="game-setup">
+                                        <section class="setup-section" id="team-selection">
+                                            <h2><i class="fas fa-users"></i>Выберите теннисиста</h2>
+                                            <div class="tables-container">
+                                                <div class="table-wrapper">
+                                                    <table class="table">
+                                                        <caption>ATP top 20</caption>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Место</th>
+                                                                <th></th>
+                                                                <th></th>
+                                                                <th>Спортсмен</th>
+                                                                <th>Очки</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @{
+                                                                int position = 1;
+                                                                foreach (var row in Model.List.OrderByDescending(x => x.points))
+                                                                {
+                                                                    if (row.sex == "Men")
+                                                                    {
+                                                                        <tr class="man-row"
+                                                                            data-team-id="@row.id"
+                                                                            data-country="@row.country"
+                                                                            data-img="@row.img"
+                                                                            data-photo="@row.photo"
+                                                                            data-name="@row.name"
+                                                                            data-surname="@row.surname"
+                                                                            data-points="@row.points"
+                                                                            data-default-rating="@row.points">
+                                                                            <td>@position</td>
+                                                                            <td><img src="@Url.Content($"~/country/{row.country}.{row.img}")" style="width: 30px; height: 30px; object-fit: contain; vertical-align: middle;" /></td>
+                                                                            <td><img src="@Url.Content($"~/tennis/{row.photo}.{row.img}")" style="width: 30px; height: 30px; object-fit: contain; vertical-align: middle;" /></td>
+                                                                            <td><strong>@row.name @row.surname</strong></td>
+                                                                            <td>@row.points</td>
+                                                                        </tr>
+                                                                        position++;
+                                                                    }
+                                                                }
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <section class="setup-section" id="settings-selection" style="display: none;">
+                                                    <div id="selected-team-display" class="selected-team-info" style="display: none;">
+                                                        <h2>Выбранный теннисист: <span id="selected-team-name"></span></h2>
+                                                        <div id="selected-team-stats"></div>
+                                                    </div>
+                                                    <h2><i class="fas fa-cog"></i> Выберите тип настроек</h2>
+                                                    <div class="settings-options">
+                                                        <button class="settings-btn" id="default-settings">
+                                                            <i class="fas fa-bolt settings-icon"></i>
+                                                            <span>По умолчанию</span>
+                                                            <small>Использовать стандартные рейтинги</small>
+                                                        </button>
+                                                        <button class="settings-btn" id="custom-settings">
+                                                            <i class="fas fa-sliders-h settings-icon"></i>
+                                                            <span>Кастомизированные</span>
+                                                            <small>Настроить рейтинги вручную</small>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="custom-ratings" id="custom-ratings">
+                                                        <p>Установите рейтинг для каждого теннисиста (от 1 до 100):</p>
+                                                        <div class="tables-container">
+                                                            <div class="table-wrapper">
+                                                                <table class="table">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th></th>
+                                                                            <th>Теннисист</th>
+                                                                            <th>Рейтинг</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="custom-table">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <button class="confirm-btn" id="confirm-btn">Подтвердить и начать игру</button>
+                                                </section>
+                                            </div>
+
+                                        </section>
+                                        <section class="in-game-screen" id="in-game-screen">
+                                            <h2 class="game-title">Вы в игре!</h2>
+                                            <p class="game-message" id="selected-team-message"></p>
+
+                                            <table class="final-ratings-table">
                                                 <thead>
                                                     <tr>
-                                                        <th>Место</th>
                                                         <th></th>
                                                         <th></th>
-                                                        <th>Спортсмен</th>
+                                                        <th>Теннисист</th>
                                                         <th>Очки</th>
+                                                        <th>Рейтинг</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    @{
-                                                        int position = 1;
-                                                        foreach (var row in Model.List.OrderByDescending(x => x.points))
-                                                        {
-                                                            if (row.sex == "Men")
-                                                            {
-                                                                <tr>
-                                                                    <td>@position</td>
-                                                                    <td><img src="@Url.Content($"~/country/{row.country}.{row.img}")" style="width: 30px; height: 30px; object-fit: contain; vertical-align: middle;" /></td>
-                                                                    <td><img src="@Url.Content($"~/Tennis/{row.photo}.{row.img}")" style="width: 30px; height: 30px; object-fit: contain; vertical-align: middle;" /></td>
-                                                                    <td><strong>@row.name @row.surname</strong></td>
-                                                                    <td>@row.points</td>
-                                                                </tr>
-                                                                position++;
-                                                            }
-                                                        }
-                                                    }
+                                                <tbody id="final-ratings-table">
                                                 </tbody>
                                             </table>
-                                        </div>
+
+                                            <button class="restart-btn" id="restart-btn"><i class="fas fa-redo"></i> Начать заново</button>
+                                        </section>
                                     </div>
                                 </div>
                             </div>
@@ -127,3 +421,254 @@
         </div>
     </div>
 </main>
+
+<script>
+    let selectedPlayer = null;
+    let selectedSettingsType = null;
+    let customRatings = {};
+    let playersData = [];
+
+    document.addEventListener('DOMContentLoaded', function () {
+        init();
+    });
+
+    function init() {
+        collectPlayersData();
+        setupEventListeners();
+    }
+
+    function collectPlayersData() {
+        const rows = document.querySelectorAll('.man-row');
+
+        rows.forEach(row => {
+            const id = row.dataset.teamId;
+
+            playersData.push({
+                id: id,
+                name: row.dataset.name,
+                surname: row.dataset.surname,
+                country: `/country/${row.dataset.country}.${row.dataset.img}`,
+                photo: `/tennis/${row.dataset.photo}.${row.dataset.img}`,
+                points: parseInt(row.dataset.points),
+                defaultRating: parseInt(row.dataset.defaultRating)
+            });
+        });
+    }
+
+    function setupEventListeners() {
+        document.querySelectorAll('.man-row').forEach(row => {
+            row.addEventListener('click', function () {
+                selectPlayer(this.dataset.teamId);
+            });
+        });
+
+        document.getElementById('default-settings')
+            .addEventListener('click', () => selectSettingsType('default'));
+
+        document.getElementById('custom-settings')
+            .addEventListener('click', () => {
+                selectSettingsType('custom');
+                renderCustomRatingsTable();
+            });
+
+        document.getElementById('confirm-btn')
+            .addEventListener('click', startGame);
+
+        document.getElementById('restart-btn')
+            .addEventListener('click', restartGame);
+
+        document.getElementById('custom-table')
+            .addEventListener('input', function (e) {
+                if (e.target.classList.contains('rating-input')) {
+                    handleRatingInput(e.target);
+                }
+            });
+    }
+
+    function handleRatingInput(input) {
+        const id = input.dataset.id;
+        let value = parseInt(input.value);
+
+        if (value < 1) value = 1;
+        if (value > 100) value = 100;
+
+        input.value = value;
+        customRatings[id] = value;
+
+        checkAllRatingsFilled();
+    }
+
+    function selectPlayer(playerId) {
+        selectedPlayer = playerId;
+
+        document.querySelectorAll('.man-row')
+            .forEach(row => row.classList.remove('selected'));
+
+        document.querySelector(`.man-row[data-team-id="${playerId}"]`)
+            .classList.add('selected');
+
+        const player = playersData.find(p => p.id === playerId);
+
+        document.getElementById('selected-team-name').textContent =
+            `${player.name} ${player.surname}`;
+
+        document.getElementById('selected-team-stats').innerHTML = `
+            <p>Очки: ${player.points}</p>
+            <p>Рейтинг по умолчанию: ${player.defaultRating}</p>
+        `;
+
+        document.getElementById('selected-team-display').style.display = 'block';
+        document.getElementById('settings-selection').style.display = 'block';
+        document.getElementById('settings-selection')
+            .scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function selectSettingsType(type) {
+        selectedSettingsType = type;
+
+        document.getElementById('default-settings').classList.remove('selected');
+        document.getElementById('custom-settings').classList.remove('selected');
+
+        if (type === 'default') {
+            document.getElementById('default-settings').classList.add('selected');
+            document.getElementById('custom-ratings').classList.remove('active');
+            document.getElementById('confirm-btn').classList.add('active');
+        } else {
+            document.getElementById('custom-settings').classList.add('selected');
+            document.getElementById('custom-ratings').classList.add('active');
+        }
+    }
+
+    function renderCustomRatingsTable() {
+        const table = document.getElementById('custom-table');
+        table.innerHTML = '';
+        customRatings = {};
+
+        playersData.forEach(player => {
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+                <td>
+                    <img src="${player.country}" width="30">
+                </td>
+                <td>
+                    <img src="${player.photo}" width="30">
+                    ${player.name} ${player.surname}
+                </td>
+                <td>
+                    <input type="number"
+                           class="rating-input"
+                           data-id="${player.id}"
+                           min="1"
+                           max="100"
+                           value="${player.defaultRating}">
+                </td>
+            `;
+
+            table.appendChild(row);
+            customRatings[player.id] = player.defaultRating;
+        });
+
+        checkAllRatingsFilled();
+    }
+
+    function checkAllRatingsFilled() {
+        const allFilled = playersData.every(player =>
+            customRatings[player.id] >= 1 &&
+            customRatings[player.id] <= 100
+        );
+
+        if (allFilled) {
+            document.getElementById('confirm-btn').classList.add('active');
+        } else {
+            document.getElementById('confirm-btn').classList.remove('active');
+        }
+
+        return allFilled;
+    }
+
+    function startGame() {
+        if (!selectedPlayer) {
+            alert('Выберите теннисиста!');
+            return;
+        }
+
+        if (!selectedSettingsType) {
+            alert('Выберите тип настроек!');
+            return;
+        }
+
+        if (selectedSettingsType === 'custom' && !checkAllRatingsFilled()) {
+            alert('Установите рейтинг для всех теннисистов!');
+            return;
+        }
+
+        const finalRatings = generateFinalRatings();
+        showGameScreen(finalRatings);
+    }
+
+    function generateFinalRatings() {
+        const ratings = {};
+
+        playersData.forEach(player => {
+            ratings[player.id] =
+                selectedSettingsType === 'default'
+                    ? player.defaultRating
+                    : customRatings[player.id];
+        });
+
+        return ratings;
+    }
+
+    function showGameScreen(ratings) {
+        const table = document.getElementById('final-ratings-table');
+        table.innerHTML = '';
+
+        const sorted = [...playersData]
+            .sort((a, b) => ratings[b.id] - ratings[a.id]);
+
+        sorted.forEach(player => {
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+                <td><img src="${player.country}" width="30"></td>
+                <td><img src="${player.photo}" width="30"></td>
+                <td>
+                    ${player.name} ${player.surname}
+                    ${player.id === selectedPlayer ? '(Ваш)' : ''}
+                </td>
+                <td>${player.points}</td>
+                <td>${ratings[player.id]}</td>
+            `;
+
+            table.appendChild(row);
+        });
+
+        document.getElementById('team-selection').style.display = 'none';
+        document.getElementById('settings-selection').style.display = 'none';
+        document.getElementById('in-game-screen').classList.add('active');
+        document.getElementById('in-game-screen')
+            .scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function restartGame() {
+        selectedPlayer = null;
+        selectedSettingsType = null;
+        customRatings = {};
+
+        document.querySelectorAll('.man-row')
+            .forEach(row => row.classList.remove('selected'));
+
+        document.getElementById('default-settings').classList.remove('selected');
+        document.getElementById('custom-settings').classList.remove('selected');
+        document.getElementById('custom-ratings').classList.remove('active');
+        document.getElementById('confirm-btn').classList.remove('active');
+        document.getElementById('selected-team-display').style.display = 'none';
+
+        document.getElementById('team-selection').style.display = 'block';
+        document.getElementById('settings-selection').style.display = 'block';
+        document.getElementById('in-game-screen').classList.remove('active');
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
